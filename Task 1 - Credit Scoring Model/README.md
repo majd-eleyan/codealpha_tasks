@@ -39,19 +39,19 @@ test_predictions.csv
 
 ### Target Distribution
 
-![Target Distribution](Task%201%20-%20Credit%20Scoring%20Model/images/target_distribution.png)
+![Target Distribution](images/target_distribution.png)
 
 ### Correlation Heatmap
 
-![Correlation Heatmap](Task%201%20-%20Credit%20Scoring%20Model/images/correlation_heatmap.png)
+![Correlation Heatmap](images/correlation_heatmap.png)
 
 ### Model Comparison
 
-![Model Comparison](Task%201%20-%20Credit%20Scoring%20Modelimages/model_comparison.png)
+![Model Comparison](images/model_comparison.PNG)
 
 ### Feature Importance
 
-![Feature Importance](Task%201%20-%20Credit%20Scoring%20Model/images/feature_importance.png)
+![Feature Importance](images/feature_importance.png)
 
 ## Project Structure
 
