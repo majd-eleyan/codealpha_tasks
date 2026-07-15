@@ -2,6 +2,7 @@
 
 A Machine Learning project developed as part of the CodeAlpha Internship Program to predict customers' credit scores based on their financial information and behavior.
 
+Note: You can download the [dataset used for this project from Kaggle](https://www.kaggle.com/datasets/parisrohan/credit-score-classification)
 ## Features
 
 * Data Cleaning and Preprocessing.
