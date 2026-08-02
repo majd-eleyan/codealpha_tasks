@@ -1,10 +1,11 @@
+import os
 import numpy as np
 import cv2
 import streamlit as st
 from PIL import Image
 import tensorflow as tf
 from streamlit_drawable_canvas import st_canvas
-import os
+
 
 # Page configuration
 st.set_page_config(page_title="Digit Recognition", page_icon="✍️")
@@ -23,7 +24,7 @@ def load_my_model():
 try:
     model = load_my_model()
 except Exception as error:
-    st.error("Could not load the model. Ensure 'handwritten_digit_model.h5' is in the same directory.")
+    f"❌  {error}"
     st.stop()
 
 def prepare_image(img):
