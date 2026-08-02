@@ -12,22 +12,11 @@ st.set_page_config(page_title="Digit Recognition", page_icon="✍️")
 st.title("✍️ Handwritten Digit Recognition")
 st.write("Draw a digit with your mouse or upload an image, and the model will try to predict it.")
 
-# Fix for Keras 3 deserialization error: ignores legacy Keras 2 GlorotUniform arguments
-class FixedGlorotUniform(tf.keras.initializers.GlorotUniform):
-    def __init__(self, seed=None, input_axes=None, output_axes=None, **kwargs):
-        super().__init__(seed=seed)
-
 # Load the model once to avoid slowing down the app
 @st.cache_resource
 def load_my_model():
     model_path = os.path.join(os.path.dirname(__file__), 'handwritten_digit_model.h5')
-    custom_objects = {'GlorotUniform': FixedGlorotUniform}
-    
-    model = tf.keras.models.load_model(
-        model_path, 
-        compile=False, 
-        custom_objects=custom_objects
-    )
+    model = tf.keras.models.load_model(model_path)
     return model
 
 # Attempt to load the model, stop with an error message if it fails
