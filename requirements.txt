@@ -1,7 +1,6 @@
 streamlit
 streamlit-drawable-canvas
-tensorflow==2.15.0
-tf_keras
+tensorflow
 numpy
 opencv-python-headless
 matplotlib
