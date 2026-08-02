@@ -4,6 +4,7 @@ import streamlit as st
 from PIL import Image
 import tensorflow as tf
 from streamlit_drawable_canvas import st_canvas
+import os
 
 # Page configuration
 st.set_page_config(page_title="Digit Recognition", page_icon="✍️")
