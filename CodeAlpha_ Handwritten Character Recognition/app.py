@@ -17,7 +17,7 @@ st.write("Draw a digit with your mouse or upload an image, and the model will tr
 @st.cache_resource
 def load_my_model():
     model_path = os.path.join(os.path.dirname(__file__), 'handwritten_digit_model.h5')
-    model = tf.keras.models.load_model(model_path)
+    model = tf.keras.models.load_model(model_path, compile=False)
     return model
 
 # Attempt to load the model, stop with an error message if it fails
