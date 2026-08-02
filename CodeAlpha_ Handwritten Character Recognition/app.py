@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 import streamlit as st
 from PIL import Image
-import tf_keras as keras 
+import tensorflow as tf
 from streamlit_drawable_canvas import st_canvas
 
 # Page configuration
@@ -16,7 +16,7 @@ st.write("Draw a digit with your mouse or upload an image, and the model will tr
 @st.cache_resource
 def load_my_model():
     model_path = os.path.join(os.path.dirname(__file__), 'handwritten_digit_model.h5')
-    model = keras.models.load_model(model_path, compile=False)
+    model = tf.keras.models.load_model(model_path, compile=False, safe_mode=False)
     return model
 
 # Attempt to load the model, stop with an error message if it fails
