@@ -14,7 +14,8 @@ st.write("Draw a digit with your mouse or upload an image, and the model will tr
 # Load the model once to avoid slowing down the app
 @st.cache_resource
 def load_my_model():
-    model = tf.keras.models.load_model("https://github.com/majd-eleyan/codealpha_tasks/blob/main/CodeAlpha_%20Handwritten%20Character%20Recognition/handwritten_digit_model.h5")
+    model_path = os.path.join(os.path.dirname(__file__), 'handwritten_digit_model.h5')
+    model = tf.keras.models.load_model(model_path)
     return model
 
 # Attempt to load the model, stop with an error message if it fails
