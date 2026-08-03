@@ -13,10 +13,9 @@ st.set_page_config(page_title="Digit Recognition", page_icon="✍️")
 st.title("✍️ Handwritten Digit Recognition")
 st.write("Draw a digit with your mouse or upload an image, and the model will try to predict it.")
 
-# Load the model directly using Keras 3 native loader
+# the model
 @st.cache_resource
 def load_my_model():
-    # 1. إعادة بناء نفس الهيكل بالضبط
     model = keras.Sequential([
         keras.layers.Conv2D(32, (3, 3), activation="relu", input_shape=(28, 28, 1)),
         keras.layers.BatchNormalization(),
@@ -35,7 +34,6 @@ def load_my_model():
         keras.layers.Dense(10, activation="softmax")
     ])
     
-    # 2. تحميل الأوزان من الملف
     weights_path = os.path.join(os.path.dirname(__file__), 'digit_model.weights.h5')
     model.load_weights(weights_path)
     return model
