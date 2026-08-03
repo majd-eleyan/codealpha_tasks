@@ -16,9 +16,28 @@ st.write("Draw a digit with your mouse or upload an image, and the model will tr
 # Load the model directly using Keras 3 native loader
 @st.cache_resource
 def load_my_model():
-    model_path = os.path.join(os.path.dirname(__file__), 'handwritten_digit_model.keras')
-    # استخدام keras الكائن المباشر يحل مشكلة quantization_config تماماً
-    model = keras.models.load_model(model_path)
+    # 1. إعادة بناء نفس الهيكل بالضبط
+    model = keras.Sequential([
+        keras.layers.Conv2D(32, (3, 3), activation="relu", input_shape=(28, 28, 1)),
+        keras.layers.BatchNormalization(),
+        keras.layers.MaxPooling2D((2, 2)),
+
+        keras.layers.Conv2D(64, (3, 3), activation="relu"),
+        keras.layers.BatchNormalization(),
+        keras.layers.MaxPooling2D((2, 2)),
+
+        keras.layers.Dropout(0.25),
+        keras.layers.Flatten(),
+
+        keras.layers.Dense(128, activation="relu"),
+        keras.layers.Dropout(0.5),
+
+        keras.layers.Dense(10, activation="softmax")
+    ])
+    
+    # 2. تحميل الأوزان من الملف
+    weights_path = os.path.join(os.path.dirname(__file__), 'digit_model.weights.h5')
+    model.load_weights(weights_path)
     return model
 
 # Attempt to load the model, stop with an error message if it fails
