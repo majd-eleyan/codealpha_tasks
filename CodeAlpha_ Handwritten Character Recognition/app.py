@@ -1,9 +1,10 @@
 import os
-import numpy as np
 import cv2
+import keras
+import numpy as np
 import streamlit as st
+
 from PIL import Image
-import tensorflow as tf
 from streamlit_drawable_canvas import st_canvas
 
 # Page configuration
@@ -12,11 +13,12 @@ st.set_page_config(page_title="Digit Recognition", page_icon="✍️")
 st.title("✍️ Handwritten Digit Recognition")
 st.write("Draw a digit with your mouse or upload an image, and the model will try to predict it.")
 
-# Load the model once to avoid slowing down the app
+# Load the model directly using Keras 3 native loader
 @st.cache_resource
 def load_my_model():
     model_path = os.path.join(os.path.dirname(__file__), 'handwritten_digit_model.keras')
-    model = tf.keras.models.load_model(model_path)
+    # استخدام keras الكائن المباشر يحل مشكلة quantization_config تماماً
+    model = keras.models.load_model(model_path)
     return model
 
 # Attempt to load the model, stop with an error message if it fails
