@@ -2,6 +2,8 @@
 
 A straightforward project for **CodeAlpha**Task #3, utilizing a Convolutional Neural Network (CNN) to recognize handwritten digits from 0 to 9.
 
+[To try the app and the model directly ✍️](https://handwritten-characters-recognition.streamlit.app/)
+
 ## Project Overview
 
 - **Model Training:** Trains a CNN architecture on the classic **MNIST dataset** (grayscale images of handwritten digits).
